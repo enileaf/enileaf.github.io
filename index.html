@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DANAYI CARDS</title>
     
-    <!-- Стили подключаются в порядке зависимости -->
+    <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -18,63 +18,49 @@
     <header class="site-header">
         <div class="header-content">
             <h1 class="site-title">DANAYI_CARDS</h1>
-            <div class="language-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="ru">RU</button>
-                <!-- Деактивированные языки (скрыты через CSS) -->
-                <button class="lang-btn disabled" data-lang="fa" title="Coming Soon">FA</button>
-                <button class="lang-btn disabled" data-lang="es" title="Coming Soon">ES</button>
-                <button class="lang-btn disabled" data-lang="kk" title="Coming Soon">KK</button>
-            </div>
+            <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                <span class="theme-icon">◐</span>
+            </button>
         </div>
     </header>
 
     <!-- =========================================================================
-    ОСНОВНОЙ КОНТЕНТ
+    ОСНОВНОЙ КОНТЕНТ С ВСТРОЕННЫМИ КАРТОЧКАМИ
     ========================================================================= -->
     <main class="site-main">
-        
-        <!-- =====================================================================
-        БЛОК КАРТОЧЕК #1 (Главный)
-        Для добавления нового блока скопируйте этот div и измените data-block-id
-        ====================================================================== -->
-        <section class="card-block" data-block-id="block-1">
-            <div class="block-header">
-                <h2 class="block-title" data-i18n="block1_title">MAIN COLLECTION</h2>
-                <span class="block-decoration">═══════════════════════</span>
-            </div>
+        <article class="content-article">
             
-            <div class="danayi-wrapper">
-                <div class="danayi-cards" data-block-id="block-1">
-                    <!-- Карточки рендерятся через JavaScript -->
-                </div>
-                
-                <button class="danayi-add-btn" data-block-id="block-1">
-                    <span class="btn-text">+ ADD_CARD</span>
-                </button>
-            </div>
-        </section>
+            <p class="text-paragraph">
+                Welcome to the <span class="inline-card" data-card-id="card-1">DANAYI system</span>. 
+                This is a minimalist card integration designed for seamless text embedding.
+            </p>
 
-        <!-- =====================================================================
-        БЛОК КАРТОЧЕК #2 (Пример второго блока)
-        Раскомментируйте для использования
-        ====================================================================== -->
-        <!--
-        <section class="card-block" data-block-id="block-2">
-            <div class="block-header">
-                <h2 class="block-title" data-i18n="block2_title">SECONDARY COLLECTION</h2>
-                <span class="block-decoration">═══════════════════════</span>
-            </div>
-            
-            <div class="danayi-wrapper">
-                <div class="danayi-cards" data-block-id="block-2"></div>
-                <button class="danayi-add-btn" data-block-id="block-2">
-                    <span class="btn-text">+ ADD_CARD</span>
-                </button>
-            </div>
-        </section>
-        -->
+            <p class="text-paragraph">
+                Each card like <span class="inline-card" data-card-id="card-2">this one</span> 
+                can be flipped to reveal additional information on the reverse side.
+            </p>
 
+            <p class="text-paragraph">
+                The cards support three size variants: 
+                <span class="inline-card" data-card-id="card-3">compact</span>, 
+                <span class="inline-card" data-card-id="card-4">medium</span>, and 
+                <span class="inline-card" data-card-id="card-5">wide</span>.
+            </p>
+
+            <p class="text-paragraph">
+                Right-click on any card to access the context menu with options to 
+                <span class="inline-card" data-card-id="card-6">edit</span>, 
+                <span class="inline-card" data-card-id="card-7">delete</span>, or 
+                <span class="inline-card" data-card-id="card-8">change type</span>.
+            </p>
+
+            <p class="text-paragraph">
+                All changes are automatically saved to your browser's local storage.
+                To reset all data, use the <span class="inline-card" data-card-id="card-9">reset button</span> 
+                in the footer below.
+            </p>
+
+        </article>
     </main>
 
     <!-- =========================================================================
@@ -84,39 +70,38 @@
         <div class="footer-content">
             <span class="footer-text">© 2024 DANAYI_CARDS</span>
             <span class="footer-decoration">///</span>
-            <span class="footer-text">NOIR_BRUTALISM_EDITION</span>
+            <button id="reset-data" class="footer-btn">RESET_DATA</button>
         </div>
     </footer>
 
     <!-- =========================================================================
-    МОДАЛЬНЫЕ ОКНА (СКРЫТЫ ПО УМОЛЧАНИЮ)
+    МОДАЛЬНОЕ ОКНО
     ========================================================================= -->
     <div id="modal-overlay" class="modal-overlay hidden">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">NEW_CARD</h3>
+                <h3 class="modal-title" id="modal-title">EDIT_CARD</h3>
                 <button class="modal-close" id="modal-close">&times;</button>
             </div>
-            <div class="modal-body" id="modal-body">
-                <!-- Содержимое заполняется через JavaScript -->
-            </div>
+            <div class="modal-body" id="modal-body"></div>
         </div>
     </div>
 
     <!-- =========================================================================
-    КОНТЕКСТНОЕ МЕНЮ (СКРЫТО ПО УМОЛЧАНИЮ)
+    КОНТЕКСТНОЕ МЕНЮ
     ========================================================================= -->
     <div id="context-menu" class="context-menu hidden"></div>
 
     <!-- =========================================================================
-    УВЕДОМЛЕНИЯ (TOAST)
+    УВЕДОМЛЕНИЯ
     ========================================================================= -->
     <div id="toast-container"></div>
 
     <!-- =========================================================================
-    СКРИПТЫ (в порядке загрузки)
+    СКРИПТЫ
     ========================================================================= -->
     <script src="js/config.js"></script>
+    <script src="js/theme-manager.js"></script>
     <script src="js/data-loader.js"></script>
     <script src="js/card-manager.js"></script>
     <script src="js/ui-manager.js"></script>
