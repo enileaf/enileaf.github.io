@@ -1,110 +1,255 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANAYI CARDS</title>
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
+    <title>SUBJECT FILE // HEIMLEAF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- =========================================================================
-    ШАПКА САЙТА
-    ========================================================================= -->
-    <header class="site-header">
-        <div class="header-content">
-            <h1 class="site-title">DANAYI_CARDS</h1>
-            <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
-                <span class="theme-icon">◐</span>
-            </button>
-        </div>
-    </header>
 
-    <!-- =========================================================================
-    ОСНОВНОЙ КОНТЕНТ С ВСТРОЕННЫМИ КАРТОЧКАМИ
-    ========================================================================= -->
-    <main class="site-main">
-        <article class="content-article">
-            
-            <p class="text-paragraph">
-                Welcome to the <span class="inline-card" data-card-id="card-1">DANAYI system</span>. 
-                This is a minimalist card integration designed for seamless text embedding.
-            </p>
-
-            <p class="text-paragraph">
-                Each card like <span class="inline-card" data-card-id="card-2">this one</span> 
-                can be flipped to reveal additional information on the reverse side.
-            </p>
-
-            <p class="text-paragraph">
-                The cards support three size variants: 
-                <span class="inline-card" data-card-id="card-3">compact</span>, 
-                <span class="inline-card" data-card-id="card-4">medium</span>, and 
-                <span class="inline-card" data-card-id="card-5">wide</span>.
-            </p>
-
-            <p class="text-paragraph">
-                Right-click on any card to access the context menu with options to 
-                <span class="inline-card" data-card-id="card-6">edit</span>, 
-                <span class="inline-card" data-card-id="card-7">delete</span>, or 
-                <span class="inline-card" data-card-id="card-8">change type</span>.
-            </p>
-
-            <p class="text-paragraph">
-                All changes are automatically saved to your browser's local storage.
-                To reset all data, use the <span class="inline-card" data-card-id="card-9">reset button</span> 
-                in the footer below.
-            </p>
-
-        </article>
-    </main>
-
-    <!-- =========================================================================
-    ПОДВАЛ САЙТА
-    ========================================================================= -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <span class="footer-text">© 2024 DANAYI_CARDS</span>
-            <span class="footer-decoration">///</span>
-            <button id="reset-data" class="footer-btn">RESET_DATA</button>
-        </div>
-    </footer>
-
-    <!-- =========================================================================
-    МОДАЛЬНОЕ ОКНО
-    ========================================================================= -->
-    <div id="modal-overlay" class="modal-overlay hidden">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">EDIT_CARD</h3>
-                <button class="modal-close" id="modal-close">&times;</button>
+    <div class="document-page">
+        
+        <!-- HEADER -->
+        <header class="doc-header">
+            <div class="meta-row">
+                <span>DATE: 2024.10.25</span>
+                <span>CLASS: RESTRICTED</span>
             </div>
-            <div class="modal-body" id="modal-body"></div>
-        </div>
+            <h1 class="main-title typewriter-target">HEIMLEAF ARCHIVES</h1>
+            <div class="separator"></div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <nav class="doc-nav">
+            <a href="#profile" class="nav-link">[01] PROFILE</a>
+            <a href="#timeline" class="nav-link">[02] TIMELINE</a>
+            <a href="#stats" class="nav-link">[03] STATS</a>
+            <a href="#quests" class="nav-link">[04] QUESTS</a>
+            <a href="#works" class="nav-link">[05] WORKS</a>
+            <a href="#comms" class="nav-link">[06] COMMS</a>
+        </nav>
+
+        <div class="separator"></div>
+
+        <!-- PROFILE SECTION -->
+        <section id="profile" class="doc-section">
+            <h2 class="section-title">/// SUBJECT PROFILE</h2>
+            <div class="text-block">
+                <p>DESIGNATION: Alister (Alexander)</p>
+                <p>CODENAME: Heimleaf</p>
+                <p>LOCATION: [the Nowhere]</p>
+                <p>STATUS: ACTIVE</p>
+                <p>OPERATIONAL SINCE: 2019</p>
+                <br>
+                <p class="note">
+                    NOTE: Greetings. You have reached the endpoint. 
+                    Rest is advised before proceeding further.
+                </p>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- TIMELINE SECTION -->
+        <section id="timeline" class="doc-section">
+            <h2 class="section-title">/// OPERATION TIMELINE</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <!-- TIMELINE ITEM 01 (MOST RECENT) -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024.10</span>
+                        <span class="timeline-event">PORTFOLIO REVISION INITIATED</span>
+                        <span class="timeline-note">[CURRENT PHASE]</span>
+                    </div>
+                </div>
+
+                <!-- TIMELINE ITEM 02 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024.06</span>
+                        <span class="timeline-event">NEW PROJECT ARCHIVE OPENED</span>
+                        <span class="timeline-note">[COMPLETED]</span>
+                    </div>
+                </div>
+
+                <!-- TIMELINE ITEM 03 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023.12</span>
+                        <span class="timeline-event">SYSTEM UPGRADE VERIFIED</span>
+                        <span class="timeline-note">[COMPLETED]</span>
+                    </div>
+                </div>
+
+                <!-- TIMELINE ITEM 04 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022.08</span>
+                        <span class="timeline-event">COLLABORATION PROTOCOL ESTABLISHED</span>
+                        <span class="timeline-note">[COMPLETED]</span>
+                    </div>
+                </div>
+
+                <!-- TIMELINE ITEM 05 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020.03</span>
+                        <span class="timeline-event">FIRST MAJOR DEPLOYMENT</span>
+                        <span class="timeline-note">[COMPLETED]</span>
+                    </div>
+                </div>
+
+                <!-- TIMELINE ITEM 06 (OLDEST) -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019.01</span>
+                        <span class="timeline-event">OPERATION COMMENCED</span>
+                        <span class="timeline-note">[INITIATION]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- STATS SECTION -->
+        <section id="stats" class="doc-section">
+            <h2 class="section-title">/// CHARACTER METRICS</h2>
+            <div class="text-block">
+                <div class="stat-row">
+                    <span class="stat-label">LEVEL</span>
+                    <span class="stat-value">05</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">EXPERIENCE</span>
+                    <span class="stat-bar">[||||||......] 60%</span>
+                </div>
+                <div class="separator-mini"></div>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">STR</span>
+                        <span class="stat-value">08</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">INT</span>
+                        <span class="stat-value">15</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">DEX</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">CHA</span>
+                        <span class="stat-value">10</span>
+                    </div>
+                </div>
+                <div class="separator-mini"></div>
+                <div class="achievements">
+                    <p class="sub-header">ACHIEVEMENTS UNLOCKED:</p>
+                    <ul class="simple-list">
+                        <li>[x] SURVIVOR (2019)</li>
+                        <li>[x] CREATOR (2020)</li>
+                        <li>[ ] MASTERMIND (LOCKED)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- QUESTS SECTION -->
+        <section id="quests" class="doc-section">
+            <h2 class="section-title">/// ACTIVE QUESTS</h2>
+            <div class="text-block">
+                <div class="quest-item">
+                    <span class="quest-id">Q-001</span>
+                    <span class="quest-desc">COMPLETE PORTFOLIO UPDATE</span>
+                    <span class="quest-status">[IN PROGRESS]</span>
+                </div>
+                <div class="quest-item">
+                    <span class="quest-id">Q-002</span>
+                    <span class="quest-desc">ESTABLISH NEW CONTACTS</span>
+                    <span class="quest-status">[PENDING]</span>
+                </div>
+                <div class="quest-item">
+                    <span class="quest-id">Q-003</span>
+                    <span class="quest-desc">MASTER NEW TECHNIQUE</span>
+                    <span class="quest-status">[FAILED]</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- WORKS SECTION -->
+        <section id="works" class="doc-section">
+            <h2 class="section-title">/// RECORD OF WORKS</h2>
+            <div class="text-block">
+                <div class="work-entry">
+                    <p>REF: 001 | TITLE: [PROJECT NAME] | YEAR: 2024</p>
+                    <p class="note">TECHNIQUE: [MEDIA] | STATUS: ORIGINAL</p>
+                </div>
+                <div class="separator-mini"></div>
+                <div class="work-entry">
+                    <p>REF: 002 | TITLE: [PROJECT NAME] | YEAR: 2024</p>
+                    <p class="note">TECHNIQUE: [MEDIA] | STATUS: ORIGINAL</p>
+                </div>
+                <div class="separator-mini"></div>
+                <div class="work-entry">
+                    <p>REF: 003 | TITLE: [PROJECT NAME] | YEAR: 2024</p>
+                    <p class="note">TECHNIQUE: [MEDIA] | STATUS: ORIGINAL</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- CONTACTS SECTION -->
+        <section id="comms" class="doc-section">
+            <h2 class="section-title">/// COMMUNICATION CHANNELS</h2>
+            <div class="text-block">
+                <ul class="simple-list">
+                    <li>
+                        <span class="label">TELEGRAM [RU]:</span>
+                        <a href="https://t.me/heimleaf" class="link-text">@heimleaf</a>
+                    </li>
+                    <li>
+                        <span class="label">TELEGRAM [EN]:</span>
+                        <a href="https://t.me/at_heimleaf" class="link-text">@at_heimleaf</a>
+                    </li>
+                    <li>
+                        <span class="label">INSTAGRAM:</span>
+                        <a href="https://instagram.com" class="link-text">@instagram</a>
+                    </li>
+                    <li>
+                        <span class="label">EMAIL:</span>
+                        <a href="mailto:your@email.com" class="link-text">your@email.com</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="doc-footer">
+            <div class="separator"></div>
+            <p>&copy; 2024 HEIMLEAF. ALL RIGHTS RESERVED.</p>
+            <p class="end-marker">■ END OF DOCUMENT ■</p>
+        </footer>
+
     </div>
 
-    <!-- =========================================================================
-    КОНТЕКСТНОЕ МЕНЮ
-    ========================================================================= -->
-    <div id="context-menu" class="context-menu hidden"></div>
-
-    <!-- =========================================================================
-    УВЕДОМЛЕНИЯ
-    ========================================================================= -->
-    <div id="toast-container"></div>
-
-    <!-- =========================================================================
-    СКРИПТЫ
-    ========================================================================= -->
-    <script src="js/config.js"></script>
-    <script src="js/theme-manager.js"></script>
-    <script src="js/data-loader.js"></script>
-    <script src="js/card-manager.js"></script>
-    <script src="js/ui-manager.js"></script>
-    <script src="js/app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
