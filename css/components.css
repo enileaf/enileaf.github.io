@@ -1,0 +1,431 @@
+/**
+ * =============================================================================
+ * КОМПОНЕНТЫ ИНТЕРФЕЙСА
+ * Карточки, кнопки, меню, модальные окна
+ * =============================================================================
+ */
+
+/* ==========================================================================
+ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ
+========================================================================== */
+.language-switcher {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.lang-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-transform: uppercase;
+}
+
+.lang-btn:hover:not(.disabled) {
+    border-color: var(--color-accent);
+    color: var(--color-text-primary);
+}
+
+.lang-btn.active {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent);
+}
+
+.lang-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+ФРЕЙМ КАРТОЧЕК
+========================================================================== */
+.danayi-wrapper {
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-primary);
+    position: relative;
+    min-height: 200px;
+}
+
+.danayi-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: 60px;
+}
+
+/* ==========================================================================
+КАРТОЧКА
+========================================================================== */
+.danayi-card {
+    position: relative;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    min-height: 150px;
+}
+
+.danayi-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+}
+
+.danayi-card.dragging {
+    opacity: 0.5;
+    border: 2px dashed var(--color-accent);
+}
+
+.danayi-card-content {
+    width: 100%;
+    text-align: center;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.danayi-card-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.danayi-card-content::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+.danayi-card-content::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+}
+
+.danayi-card-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+}
+
+/* СТОРОНЫ КАРТОЧКИ */
+.danayi-card .side-2 {
+    display: none;
+}
+
+.danayi-card.flipped .side-1 {
+    display: none;
+}
+
+.danayi-card.flipped .side-2 {
+    display: block;
+}
+
+.danayi-text {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.danayi-card .side-1 .danayi-text {
+    font-size: var(--font-size-lg) !important;
+    font-weight: 700 !important;
+    color: var(--color-text-primary);
+}
+
+.danayi-card .side-2 .danayi-text {
+    font-size: var(--font-size-base) !important;
+    color: var(--color-text-secondary);
+}
+
+/* ТИПЫ КАРТОЧЕК */
+.danayi-card-square {
+    aspect-ratio: 1 / 1;
+    grid-column: span 1;
+}
+
+.danayi-card-rectangle {
+    aspect-ratio: 2 / 1;
+    grid-column: span 2;
+}
+
+.danayi-card-full {
+    aspect-ratio: auto;
+    grid-column: span 4;
+    min-height: 150px;
+}
+
+/* ==========================================================================
+КНОПКА ДОБАВЛЕНИЯ
+========================================================================== */
+.danayi-add-btn {
+    position: absolute;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.danayi-add-btn:hover {
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent);
+}
+
+.danayi-add-btn:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================================================
+МОДАЛЬНОЕ ОКНО
+========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    font-family: var(--font-mono);
+}
+
+.modal-close:hover {
+    color: var(--color-accent);
+}
+
+.modal-body {
+    padding: var(--spacing-md);
+}
+
+/* ЭЛЕМЕНТЫ ФОРМЫ В МОДАЛКЕ */
+.danayi-modal-row {
+    margin-bottom: var(--spacing-md);
+}
+
+.danayi-modal-row label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+}
+
+.danayi-type-options {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.danayi-type-btn {
+    flex: 1;
+    min-width: 80px;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.danayi-type-btn:hover {
+    border-color: var(--color-accent);
+}
+
+.danayi-type-btn.active {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent);
+}
+
+.danayi-modal-input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    resize: vertical;
+    min-height: 80px;
+}
+
+.danayi-modal-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.danayi-modal-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+    margin-top: var(--spacing-md);
+}
+
+.danayi-modal-buttons button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 1px solid var(--color-border);
+}
+
+.danayi-modal-buttons button:first-child {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent);
+}
+
+.danayi-modal-buttons button:last-child {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+КОНТЕКСТНОЕ МЕНЮ
+========================================================================== */
+.context-menu {
+    position: absolute;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    min-width: 200px;
+    z-index: 1001;
+    box-shadow: var(--shadow-lg);
+}
+
+.context-menu.hidden {
+    display: none;
+}
+
+.context-menu-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--color-bg-primary);
+}
+
+.context-menu-item:hover {
+    background-color: var(--color-accent-dim);
+    color: var(--color-accent);
+}
+
+.context-menu-separator {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: var(--spacing-xs) 0;
+}
+
+/* ==========================================================================
+УВЕДОМЛЕНИЯ (TOAST)
+========================================================================== */
+#toast-container {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.toast {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-accent);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* ==========================================================================
+АДАПТИВНОСТЬ КАРТОЧЕК
+========================================================================== */
+@media (max-width: 768px) {
+    .danayi-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .danayi-card-rectangle,
+    .danayi-card-full {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .danayi-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .danayi-card-square,
+    .danayi-card-rectangle,
+    .danayi-card-full {
+        grid-column: span 1;
+    }
+    
+    .danayi-type-options {
+        flex-direction: column;
+    }
+    
+    .danayi-type-btn {
+        width: 100%;
+    }
+}
