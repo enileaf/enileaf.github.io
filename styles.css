@@ -1,5 +1,5 @@
 /* =============================================================================
-   STYLE: TYPEWRITER DOCUMENT (AUTO THEME SWITCHING)
+   STYLE: TYPEWRITER DOCUMENT (AUTO THEME SWITCHING + MANUAL TOGGLE)
    ============================================================================= */
 
 :root {
@@ -12,7 +12,7 @@
     
     --font-main: 'Courier Prime', monospace;
     --font-typo: 'Special Elite', monospace;
-    --size-text: 12px;
+    --size-text: 13px;
 }
 
 /* LIGHT THEME OVERRIDE */
@@ -24,6 +24,24 @@
         --color-accent: #A90414;
         --color-border: #000000;
     }
+}
+
+/* MANUAL LIGHT THEME OVERRIDE */
+body.light-theme {
+    --color-bg: #FEFEFE;
+    --color-text: #000000;
+    --color-secondary: #7A7A7A;
+    --color-accent: #A90414;
+    --color-border: #000000;
+}
+
+/* MANUAL DARK THEME OVERRIDE */
+body.dark-theme {
+    --color-bg: #000000;
+    --color-text: #FEFEFE;
+    --color-secondary: #7A7A7A;
+    --color-accent: #A90414;
+    --color-border: #FEFEFE;
 }
 
 * {
@@ -69,15 +87,43 @@ body {
 .meta-row {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    align-items: center;
+    font-size: 11px;
     color: var(--color-secondary);
     text-transform: uppercase;
     margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.meta-row > span {
+    flex-shrink: 0;
+}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+    background: transparent;
+    border: 1px dotted var(--color-secondary);
+    color: var(--color-secondary);
+    font-family: var(--font-main);
+    font-size: 10px;
+    padding: 2px 6px;
+    cursor: pointer;
+    text-transform: lowercase;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    opacity: 1;
+    border-color: var(--color-text);
+    color: var(--color-text);
 }
 
 .main-title {
     font-family: var(--font-typo);
-    font-size: 18px;
+    font-size: 19px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--color-text);
@@ -104,7 +150,7 @@ body {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 20px;
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
 }
 
@@ -125,7 +171,7 @@ body {
 }
 
 .section-title {
-    font-size: 14px;
+    font-size: 15px;
     text-transform: uppercase;
     color: var(--color-text);
     margin-bottom: 15px;
@@ -143,7 +189,7 @@ body {
 .note {
     color: var(--color-secondary);
     font-style: italic;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 /* TIMELINE */
@@ -193,19 +239,19 @@ body {
 }
 
 .timeline-date {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--color-secondary);
     text-transform: uppercase;
 }
 
 .timeline-event {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--color-text);
     text-transform: uppercase;
 }
 
 .timeline-note {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--color-secondary);
     font-style: italic;
 }
@@ -215,7 +261,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .stat-label {
@@ -242,7 +288,7 @@ body {
 .stat-item {
     border: 1px dotted var(--color-secondary);
     padding: 5px;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .achievements {
@@ -250,7 +296,7 @@ body {
 }
 
 .sub-header {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--color-secondary);
     margin-bottom: 5px;
     text-transform: uppercase;
@@ -263,7 +309,7 @@ body {
 
 .simple-list li {
     margin-bottom: 5px;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 /* QUESTS */
@@ -271,7 +317,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
-    font-size: 11px;
+    font-size: 12px;
     border-bottom: 1px dotted var(--color-secondary);
     padding-bottom: 4px;
 }
@@ -302,7 +348,7 @@ body {
 }
 
 .work-entry p {
-    font-size: 11px;
+    font-size: 12px;
     margin-bottom: 2px;
 }
 
@@ -330,7 +376,7 @@ body {
 .doc-footer {
     margin-top: 40px;
     text-align: center;
-    font-size: 10px;
+    font-size: 11px;
     color: var(--color-secondary);
 }
 
@@ -359,7 +405,11 @@ body {
 @media (max-width: 480px) {
     .meta-row {
         flex-direction: column;
+        align-items: flex-start;
         gap: 5px;
+    }
+    .theme-toggle {
+        margin-top: 5px;
     }
     .doc-nav {
         gap: 10px;
