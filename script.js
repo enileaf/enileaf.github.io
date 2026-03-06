@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateToggleText = () => {
         const isLight = body.classList.contains('light-theme');
-        themeToggle.textContent = isLight ? 'В ТЬМУ' : 'НА СВЕТ';
+        themeToggle.textContent = isLight ? 'ВО ТЬМУ' : 'НА СВЕТ';
     };
 
     updateToggleText();
