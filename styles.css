@@ -192,6 +192,12 @@ body {
     font-size: 12px;
 }
 
+.note2 {
+    color: var(--color-secondary);
+    font-style: italic;
+    font-size: 10px;
+}
+
 /* TIMELINE */
 .timeline-container {
     position: relative;
