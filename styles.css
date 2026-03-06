@@ -124,7 +124,7 @@ body {
 .main-title {
     font-family: var(--font-typo);
     font-size: 19px;
-    text-transform: uppercase;
+   /* text-transform: uppercase; */
     letter-spacing: 1px;
     color: var(--color-text);
     margin-bottom: 10px;
