@@ -1,8 +1,9 @@
 /* =============================================================================
-SCRIPT: THEME TOGGLE + INFO TABS + MODAL
+SCRIPT: THEME TOGGLE + MOBILE PROJECTS LIST + MODAL
 ============================================================================= */
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('SYSTEM READY: BUREAU MODE');
+    console.log('SYSTEM READY: PORTFOLIO MODE');
+    
     var themeToggle = document.getElementById('theme-toggle');
     var body = document.body;
 
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (themeToggle) {
         themeToggle.addEventListener('click', function() {
-            if (body.classList.contains('light-theme')) {  
+            if (body.classList.contains('light-theme')) {   
                 body.classList.remove('light-theme');
                 body.classList.add('dark-theme');
             } else {
@@ -48,26 +49,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    var tabButtons = document.querySelectorAll('.tab-btn');
-    var textModules = document.querySelectorAll('.text-module');
-
-    tabButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var targetTab = this.dataset.tab;
+    // Генерация мобильного списка проектов
+    function generateMobileProjectsList() {
+        var caseCards = document.querySelectorAll('.case-card');
+        var mobileList = document.getElementById('mobile-projects-list');
+        
+        if (!mobileList || caseCards.length === 0) return;
+        
+        mobileList.innerHTML = '';
+        
+        caseCards.forEach(function(card) {
+            var projectName = card.getAttribute('data-project') || 'БЕЗ НАЗВАНИЯ';
+            var projectDate = card.getAttribute('data-date') || '';
+            var projectStatus = card.getAttribute('data-status') || '';
             
-            tabButtons.forEach(function(b) {
-                b.classList.remove('active');
-            });
+            var item = document.createElement('div');
+            item.className = 'mobile-project-item';
+            item.innerHTML = 
+                '<div class="mobile-project-name">' + projectName + '</div>' +
+                '<div class="mobile-project-meta">' +
+                    '<div class="mobile-project-date">' + projectDate + '</div>' +
+                    '<div class="mobile-project-status">' + projectStatus + '</div>' +
+                '</div>';
             
-            textModules.forEach(function(mod) {
-                mod.classList.remove('active');
-            });
-             
-            this.classList.add('active');
-            document.getElementById(targetTab).classList.add('active');
+            mobileList.appendChild(item);
         });
-    });
+    }
 
+    generateMobileProjectsList();
+
+    // Observer для анимации
     var observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -20px 0px'
@@ -81,13 +92,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-
-    var animatedElements = document.querySelectorAll('.section-title, .case-card, .about-layout, .text-module');
-    animatedElements.forEach(function(el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(10px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    
+    var sections = document.querySelectorAll('.content-section');
+    sections.forEach(function(section) {
+        observer.observe(section);
     });
 });
 
@@ -116,7 +124,7 @@ var contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Запрос принят. Контакт будет установлен в ближайшее время.');
+        alert('ЗАПРОС ПРИНЯТ. КОНТАКТ БУДЕТ УСТАНОВЛЕН В БЛИЖАЙШЕЕ ВРЕМЯ.');
         closeContactModal();
     });
 }
