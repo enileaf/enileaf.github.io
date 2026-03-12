@@ -1046,3 +1046,34 @@ ANIMATIONS
 .about-layout {
   animation: fadeIn 0.4s ease forwards;
 }
+
+/* =============================================================================
+CUSTOM SCROLLBAR - DARK THEME
+============================================================================= */
+
+/* Для WebKit браузеров (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-bg);
+}
